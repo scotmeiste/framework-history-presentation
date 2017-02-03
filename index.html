@@ -20,55 +20,106 @@
 			<!-- ALL SLIDES GO HERE -->
 			<!-- Each section element contains an individual slide -->
 			<section>
-				<h1>NativeScript</h1>
-				<p>Cross-platform native mobile app development</p>		
-			</section>
-
-			<section>
-                <h3>What NativeScript is <em>not</em></h3>
-                <ul>
-                    <li>a Webview (i.e Cordova, Phone Gap, Ionic, etc)</li>
-                    <li>Transpiled</li>
-                    <li>a new language to learn</li>
-                </ul>
+				<h1>A Short history of JavaScript frameworks</h1>
+                <p>AKA Why you should <em>probably</em> use a framework if you're doing client-side development</p>		
 			</section>
 
 			<section>
                 <section>
-                    <h3>What is NativeScipt?</h3>
-                    <p class="fragment">JavaScript!</p>
-                    <p class="fragment">Ok there's more...</p>
+                    <h2>In the beginning...</h2>
+                    <img class="fragment" src="images/netscape-logo-small.jpg" />
+
+                    <aside class="notes">JavaScript created by Brendon Eich for Netscape</aside>
                 </section>
                 <section>
-                    <h3>What is NativeScipt?</h3>
-                    <h4 class="fragment">It's a runtime</h4>
-                    <p class="fragment">It doesn't run as a tiny web site on your phone. It is truly running on the phone at near-native speeds</p>
+                    <h2>In the beginning...</h2>
+                    <p class="fragment">Each browser had their own version of a JavaScript engine</p>
+                    <img class="fragment" src="images/chrome.jpg" />
+                    <img class="fragment" src="images/firefox.jpg" />
+                    <img class="fragment" src="images/ie.jpg" />
+                    <img class="fragment" src="images/vbscript.png" />
+                    <p class="fragment">Yikes!</p>
                     
+                    <aside class="notes">Over the following months and years others copied... sort of. Each had their own JavaScript engine with their own API, and one even tried a second scripting language...</aside>
                 </section>
                 <section>
-                    <h3>How do I build stuff?</h3>
-                    <h4 class="fragment">JavaScript!</h4>
-                    <p class="fragment">Android and iOS can run JavaScript natively.</p>
-                    <p class="fragment">And also...TypeScript</p>
-                    <p class="fragment">and Angular 2!</p>
+                    <h2>The Result?</h2>
+                    <h1 class="fragment">Chaos!</h1>
+                    <p class="fragment">Ok not really...</p>
+                    <p class="fragment">But trying to use JavaScript was a pain...</p>
 
+                    <aside class="notes">Since there was an inconsistent JavaScript API for the DOM (or inconsistent behavior), using it was painful since developers couldn't trust that their code would run the same across all browsers</aside>
                 </section>
 			</section>
+
+
+			<section>
+                <section>
+                    <h2>But then two things happened...</h2>
+
+                    <img class="fragment" src="images/jquery.png" />
+                    <img class="fragment" src="images/ajax.jpg" />
+
+                    <aside class="notes">jquery and ajax solved a couple of key issues</aside>
+                </section>
+                <section>
+                    <h2>ajax</h2>
+                    <img class="fragment" src="images/ajax.jpg" />
+
+                    <ul>
+                        <li class="fragment">Asynchronous JavaScript And XML</li>
+                        <li class="fragment">Brings data to the client-side asynchronously</li>
+                        <li class="fragment">Uses the XmlHttpRequest object (thanks Microsoft!)</li>
+                    </ul>
+
+                    <aside class="notes">
+                        The async part is key. It provided a way to fetch data without locking the UI while the request completed. Otherwise fetching data from the server via script would be problematic to the point of being unusable
+                    </aside>
+                </section>
+                <section>
+                    <h2>jquery</h2>
+                    <div>
+                        <img class="fragment" src="images/jquery.png" />
+                    </div>
+                    
+
+                    <ul>
+                        <li class="fragment">Finally! a common DOM API</li>
+                        <li class="fragment">Whee! look at us manipulate the DOM</li>
+                    </ul>
+
+                    <aside class="notes">
+                        jquery made client-side development tolerable, even enjoyable. Developers no longer had to do the whole "if IE do X, if firefox do Y".
+                        manipulating the DOM was a breeze and so was developing rich, responsive apps.
+                    </aside>
+                </section>
+                <section>
+                    <h2>The Result?</h2>
+                    <img class="fragment" src="images/jquery.png" /><img class="fragment" src="images/ajax.jpg" />
+                    <p class="fragment">All the pieces exist to create rich, interactive, data-driven web applictions</p>
+                    <h2 class="fragment">The problem?</h2>
+                    <p class="fragment">We had all the pieces, and no structure</p>
+
+                    <aside class="notes">
+                        We have a way to get data, we have a way to update the DOM wihtout server round-trips that works (mostly) across all browsers.
+                        But these can be thrown into a single file like the spaghetti code of old. or you can make a browser load 100s of individual files.
+                    </aside>
+                </section>
+			</section>
+
+
             <section>
-                <h3>So its like Xamarin?</h3>
-                <p class="fragment">Sort of...</p>
-                <ul>
-                    <li class="fragment">NS runs JavaScript directly on the device.</li>
-                    <li class="fragment">Instant access to 100% of the native APIs. No need to wait for a new version of NativeScript</li>
-                    <li class="fragment">Xamarin requires new versions to stay update-to-date with OS releases</li>
-                </ul>
+                <section>
+                    <h2>Frameworks!</h2>
+                </section>
+            </section>
+
+
+            <section>
                 
             </section>
-            <section>
-                <h3>Demo!</h3>
-            </section>
 
-			</div>
+	    </div>
 	</div>
 	<script src="lib/js/head.min.js"></script>
 	<script src="js/reveal.js"></script>
@@ -76,6 +127,21 @@
 	<script>
 		// Required, even if empty.
 		Reveal.initialize({
+            dependencies: [
+                // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+                { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+
+                // Syntax highlight for <code> elements
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+
+                // Zoom in and out with Alt+click
+                { src: 'plugin/zoom-js/zoom.js', async: true },
+
+                // Speaker notes
+                { src: 'plugin/notes/notes.js', async: true },
+
+                
+            ]
 		});
 	</script>
 </body>
