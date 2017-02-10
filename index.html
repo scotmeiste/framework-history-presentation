@@ -2,7 +2,7 @@
 <html lang="en">	
 <head>
 	<meta charset="utf-8">
-	<title>NativeScript</title>
+	<title>JavaScript</title>
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/moon.css" id="theme">	
 	<!--Add support for earlier versions of Internet Explorer -->
@@ -102,7 +102,7 @@
 
                     <aside class="notes">
                         We have a way to get data, we have a way to update the DOM wihtout server round-trips that works (mostly) across all browsers.
-                        But these can be thrown into a single file like the spaghetti code of old. or you can make a browser load 100s of individual files.
+                        But these can be thrown into a single file like a big bowl of sphagetti. or you can make a browser load 100s of individual files.
                     </aside>
                 </section>
 			</section>
@@ -111,12 +111,134 @@
             <section>
                 <section>
                     <h2>Frameworks!</h2>
+                    <p>Let the framework wars begin!</p>
+                    <p class="fragment">Frameworks are not for the browser, they're for the developer!</p>
+
+                    <aside class="notes">
+                        frameworks are always less effecient than native javascript. they exist to make the developer more effecient, and to keep the developer from hating life
+                    </aside>
                 </section>
+                <section>
+                    <h3>Why should I use a framework?</h3>
+                    <p class="fragment">You'll get...</p>
+                    <ul>
+                        <li class="fragment">Modularization (classes, components, etc)</li>
+                        <li class="fragment">Template-based rendering (html)</li>
+                        <li class="fragment">Guidance on code organization</li>
+                        <li class="fragment">Routing (not all, but most)</li>
+                        <li class="fragment">A way to interact with an API</li>
+                        <li class="fragment">Some security (XSS, script injection, etc)</li>
+                        <li class="fragment">Rich user experience</li>
+                    </ul>
+                    
+                    <aside class="notes">
+                        You'll also get the added benefit of leveraging a lot of really smart people's experience and not learn the hard way by writing 'low-level' JavaScript
+                    </aside>
+                </section>
+
             </section>
 
 
             <section>
+                <section>
+                    <h2>Anatomy of a single page app (SPA)</h2>
+                </section>
+
+                <section>
+                    <h3>
+                        High-level concept
+                    </h3>
+                    <ul>
+                        <li class="fragment">Single HTML page (hence the name...)</li>
+                        <li class="fragment">Application logic managed by JavaScript</li>
+                        <li class="fragment">Navigation results in HTML fragments being added to/removed from DOM, rather than going to a new endpoint</li>
+                        <li class="fragment">Application state is contained entirely on the client. keeps server stateless!</li>
+                        <li class="fragment">Interaction with server is primarily AJAX calls</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Pieces of a SPA</h3>
+                    <ul>
+                        <li class="fragment"><strong>Framework</strong> - see previous slides :). May have influence over the other pieces of your app</li>
+                        <li class="fragment"><strong>Transpiler</strong> - Transforms ES6 or higher order languages to lower-level ES5 that can run across browsers (optional)</li>
+                        <li class="fragment"><strong>Testing framework</strong> - Yes, even JavaScript should be unit tested!</li>
+                        <li class="fragment"><strong>Module loader</strong> - loads all of the files you're adding for your framework</li>
+                        <li class="fragment"><strong>Bundler</strong> - concatenate/minify all the things! (many module loaders also serve as a bundler)</li>
+                        <li class="fragment"><strong>Linter</strong> - Keeps an eye on your code and highlights issues</li>
+                        <li class="fragment"><strong>Build tool</strong> - glues all the tools together. Some module loaders/bundlers can also serve as a build tool</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Popular options for your SPA</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Piece</th>
+                                <th>Options</th>
+                                <th>In Use</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="fragment">
+                                <td>Framework</td>
+                                <td>Angular, Ember, React, Vue</td>
+                                <td>Angular 2</td>
+                            </tr>
+                            <tr class="fragment">
+                                <td>Transpiler</td>
+                                <td>ES6/ES2017, TypeScript, CoffeeScript</td>
+                                <td>TypeScript</td>
+                            </tr>
+                            <tr class="fragment">
+                                <td>Testing Framework</td>
+                                <td>Mocha, Jasmine, Protractor</td>
+                                <td>Jasmine (sort of)</td>
+                            </tr>
+                            <tr class="fragment">
+                                <td>Module Loader</td>
+                                <td>System.js, Webpack, Browserify</td>
+                                <td>System.js</td>
+                            </tr>
+                            <tr class="fragment">
+                                <td>Bundler</td>
+                                <td>System.js, Webpack, Browserify, Rollup</td>
+                                <td>Rollup</td>
+                            </tr>
+                            
+                            
+                        </tbody>
+                    </table>
+                </section>
+                <section>
+                    <h3>Popular options for your SPA (continued)</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Piece</th>
+                                <th>Options</th>
+                                <th>In Use</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="fragment">
+                                <td>Linter</td>
+                                <td>jslint, eslint, jshint, tslint</td>
+                                <td>tslint</td>
+                            </tr>
+                            <tr class="fragment">
+                                <td>Build tool</td>
+                                <td>gulp, grunt, framework-specific (angular-cli)</td>
+                                <td>gulp</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
                 
+            </section>
+            <section>
+                Questions?
             </section>
 
 	    </div>
